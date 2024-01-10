@@ -13,7 +13,7 @@ Provide a clear and concise description of the bug.
 Include source code:
 
 ```python
-from faststream import FastStream
+import {{cookiecutter.project_slug}}
 ...
 ```
 
@@ -31,7 +31,7 @@ Describe what is actually happening clearly and concisely.
 If applicable, attach screenshots to help illustrate the problem.
 
 **Environment**
-Include the output of the `faststream -v` command to display your current project and system environment.
+Include the info of your environment and {{cookiecutter.project_name}} version
 
 **Additional context**
 Provide any other relevant context or information about the problem here.
