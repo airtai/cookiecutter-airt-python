@@ -1,1 +1,0 @@
-"""A Python framework for building services interacting with Apache Kafka, RabbitMQ, NATS and Redis."""

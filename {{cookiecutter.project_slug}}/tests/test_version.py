@@ -1,5 +1,5 @@
-import faststream
+import {{cookiecutter.project_slug}}
 
 
 def test_version() -> None:
-    assert faststream.__version__ is not None
+    assert {{cookiecutter.project_slug}}.__version__ is not None
