@@ -1,4 +1,3 @@
 ---
-title: FastStream
-template: home.html
+title: {{cookiecutter.project_name}}
 ---

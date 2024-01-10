@@ -26,15 +26,15 @@ jobs:
 
       - name: Run ruff
         shell: bash
-        run: ruff faststream
+        run: ruff {{cookiecutter.project_slug}}
 
       - name: Run mypy
         shell: bash
-        run: mypy faststream tests/mypy
+        run: mypy {{cookiecutter.project_slug}}
 
       - name: Run bandit
         shell: bash
-        run: bandit -c pyproject.toml -r faststream
+        run: bandit -c pyproject.toml -r {{cookiecutter.project_slug}}
 
       - name: Run Semgrep
         shell: bash
@@ -383,7 +383,7 @@ jobs:
       - run: ls -la coverage
       - run: coverage combine coverage
       - run: coverage report
-      - run: coverage html --show-contexts --title "FastStream coverage for ${{ github.sha }}"
+      - run: coverage html --show-contexts --title "{{cookiecutter.project_name}} coverage for ${{ github.sha }}"
 
       - name: Store coverage html
         uses: actions/upload-artifact@v4

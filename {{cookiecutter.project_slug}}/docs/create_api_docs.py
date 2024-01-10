@@ -258,10 +258,10 @@ def _generate_api_docs_for_module(root_path: Path, module_name: str) -> str:
     _update_api_docs(symbols, root_path, module_name)
 
     # todo: fix the problem and remove this
-    src = """                    - [ContactDict](api/faststream/asyncapi/schema/info/ContactDict.md)
+    src = """                    - [ContactDict](api/{{cookiecutter.project_slug}}/asyncapi/schema/info/ContactDict.md)
 """
-    dst = """                    - [ContactDict](api/faststream/asyncapi/schema/info/ContactDict.md)
-                    - [EmailStr](api/faststream/asyncapi/schema/info/EmailStr.md)
+    dst = """                    - [ContactDict](api/{{cookiecutter.project_slug}}/asyncapi/schema/info/ContactDict.md)
+                    - [EmailStr](api/{{cookiecutter.project_slug}}/asyncapi/schema/info/EmailStr.md)
 """
     api_summary = api_summary.replace(src, dst)
 
@@ -295,4 +295,4 @@ def create_api_docs(
 
 if __name__ == "__main__":
     root = Path(__file__).resolve().parent
-    create_api_docs(root, "faststream")
+    create_api_docs(root, "{{cookiecutter.project_slug}}")

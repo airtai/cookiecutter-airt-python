@@ -216,9 +216,9 @@ def update_contributing():
 
 @app.command()
 def build_api_docs():
-    """Build api docs for faststream."""
+    """Build api docs for {{cookiecutter.project_slug}}."""
     typer.echo("Updating API docs")
-    create_api_docs(root_path=BASE_DIR, module="faststream")
+    create_api_docs(root_path=BASE_DIR, module="{{cookiecutter.project_slug}}")
 
 
 def _build():

@@ -89,7 +89,7 @@ testing = [
 ]
 
 dev = [
-    "faststream[lint,testing,devdocs]",
+    "{{cookiecutter.project_slug}}[lint,testing,devdocs]",
     "pre-commit==3.5.0; python_version < '3.9'",
     "pre-commit==3.6.0; python_version >= '3.9'",
     "detect-secrets==1.4.0",

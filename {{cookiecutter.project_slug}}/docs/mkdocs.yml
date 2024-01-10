@@ -1,7 +1,7 @@
-site_name: FastStream
+site_name: {{cookiecutter.project_name}}
 # description to improve website indexing
-site_description: FastStream Python messaging framework documentation
-site_url: https://faststream.airt.ai/
+site_description: {{cookiecutter.project_description}}
+site_url: https://{{cookiecutter.project_slug}}.airt.ai/
 site_author: airt
 copyright: '&copy; 2023 <a href="https://airt.ai/" target="_blank" rel="noopener">airt</a>'
 
@@ -13,9 +13,9 @@ watch:
   - includes
   - overrides
 
-repo_name: airtai/faststream
-repo_url: https://github.com/airtai/faststream
-edit_uri: https://github.com/airtai/faststream/tree/main/docs/docs
+repo_name: airtai/{{cookiecutter.project_slug}}
+repo_url: https://github.com/airtai/{{cookiecutter.project_slug}}
+edit_uri: https://github.com/airtai/{{cookiecutter.project_slug}}/tree/main/docs/docs
 
 exclude_docs: |
   navigation_template.txt
@@ -151,13 +151,13 @@ extra:
   analytics:
     provider: google
     property: G-HDTMP5FFHP
-  social_image: https://opengraph.githubassets.com/1671805243.560327/airtai/faststream
+  #social_image: https://opengraph.githubassets.com/1671805243.560327/airtai/faststream
   social:
     # Discord link should be first
     - icon: fontawesome/brands/discord
       link: https://discord.gg/qFm6aSqq59
     - icon: fontawesome/brands/github-alt
-      link: https://github.com/airtai/faststream
+      link: https://github.com/airtai/{{cookiecutter.project_slug}}
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/airt_AI
     - icon: fontawesome/brands/facebook
