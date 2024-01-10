@@ -117,9 +117,7 @@ python_version = "3.8"
 ignore_missing_imports = true
 install_types = true
 non_interactive = true
-plugins = [
-    "pydantic.mypy"
-]
+plugins = []
 
 # from https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/
 disallow_untyped_defs = true
