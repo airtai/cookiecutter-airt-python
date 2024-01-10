@@ -28,7 +28,7 @@ def find_header(lines: List[str]) -> Tuple[str, List[str]]:
 def get_github_releases() -> Sequence[Tuple[str, str]]:
     # Get the latest version from GitHub releases
     response = requests.get("https://api.github.com/repos/airtai/{{cookiecutter.project_slug}}/releases")
-    return ((x["tag_name"], x["body"]) for x in reversed(response.json()))
+    return ((x["tag_name"], x["body"]) for x in reversed(response.json())) if response.ok else []
 
 
 def convert_links_and_usernames(text):

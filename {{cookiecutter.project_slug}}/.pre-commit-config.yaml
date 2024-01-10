@@ -9,7 +9,8 @@ repos:
         exclude: |
             (?x)^(
                 docs/docs/SUMMARY.md|
-                docs/docs/en/api/.meta.yml
+                docs/docs/en/api/.meta.yml|
+                docs/docs/en/release.md
             )$
     -   id: check-yaml
         exclude: 'docs/mkdocs.yml'
