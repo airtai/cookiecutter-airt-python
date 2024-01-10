@@ -2,5 +2,8 @@
     "username": "github-username",
     "project_name": "My Project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
-    "project_description": "New project created with cookiecutter"
+    "project_description": "New project created with cookiecutter",
+    "_copy_without_render": [
+        ".github/update_release_notes.yaml"
+    ]
 }
