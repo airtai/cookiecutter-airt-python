@@ -2,10 +2,10 @@
 set -e
 
 echo "Running mypy..."
-mypy faststream tests/mypy
+mypy {{cookiecutter.project_slug}}
 
 echo "Running bandit..."
-bandit -c pyproject.toml -r faststream
+bandit -c pyproject.toml -r {{cookiecutter.project_slug}}
 
 echo "Running semgrep..."
 semgrep scan --config auto --error
