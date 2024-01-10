@@ -3,15 +3,14 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "faststream"
-description = "FastStream: the simplest way to work with a messaging queues"
+name = "{{cookiecutter.project_slug}}"
+description = "{{cookiecutter.project_description}}"
 readme = "README.md"
 authors = [
     { name = "airt", email = "info@airt.ai" },
-    { name = "lancetnik", email = "diementros@gmail.com" },
 ]
 
-keywords = ["rabbitmq", "kafka", "framework", "nats", "redis", "message brokers"]
+keywords = ["python"]
 
 requires-python = ">=3.8"
 
@@ -37,43 +36,16 @@ classifiers = [
     "Intended Audience :: Developers",
     "Intended Audience :: Information Technology",
     "Intended Audience :: System Administrators",
-    "Environment :: Web Environment",
-    "Framework :: AsyncIO",
-    "Framework :: Pydantic",
-    "Framework :: Pydantic :: 1",
-    "Framework :: Pydantic :: 2",
 ]
 
 dynamic = ["version"]
 
 dependencies = [
-    "anyio>=3.7.1,<5",
-    "fast-depends>=2.2.6,<3",
-    "typer>=0.9,<1",
-    "typing-extensions>=4.8.0",
 ]
 
 [project.optional-dependencies]
-# public distributions
-rabbit = [
-    "aio-pika>=9,<10",
-]
-
-kafka = [
-    "aiokafka>=0.9,<0.11",
-]
-
-nats = [
-    "nats-py>=2.3.1,<3.0.0"
-]
-
-redis = [
-    "redis>=5.0.0,<6.0.0"
-]
 
 docs = [
-    "fastapi>=0.100.0,<1.0.0",
-    "uvicorn>=0.17.0,<1.0.0",
 ]
 
 # dev dependencies
@@ -110,39 +82,27 @@ lint = [
 test-core = [
     "coverage[toml]==7.4.0",
     "pytest==7.4.4",
-    "pytest-asyncio==0.23.3",
-    "dirty-equals==0.7.1.post0",
 ]
 
 testing = [
-    "faststream[test-core]",
-    "fastapi==0.108.0",
-    "pydantic-settings==2.1.0",
-    "httpx==0.26.0",
-    "PyYAML==6.0.1",
-    "watchfiles==0.21.0",
-    "email-validator==2.1.0.post1",
+    "{{cookiecutter.project_slug}}[test-core]",
 ]
 
 dev = [
-    "faststream[rabbit,kafka,nats,docs,redis,lint,testing,devdocs]",
+    "faststream[lint,testing,devdocs]",
     "pre-commit==3.5.0; python_version < '3.9'",
     "pre-commit==3.6.0; python_version >= '3.9'",
     "detect-secrets==1.4.0",
 ]
 
 [project.urls]
-Homepage = "https://faststream.airt.ai/latest/"
-Documentation = "https://faststream.airt.ai/latest/getting-started/"
-Tracker = "https://github.com/airtai/FastStream/issues"
-Source = "https://github.com/airtai/FastStream"
-Discord = "https://discord.gg/qFm6aSqq59"
-
-[project.scripts]
-faststream = "faststream.__main__:cli"
+Homepage = "https://{{cookiecutter.project_slug}}.airt.ai/latest/"
+Documentation = "https://{{cookiecutter.project_slug}}.airt.ai/latest/getting-started/"
+Tracker = "https://github.com/airtai/{{cookiecutter.project_slug}}/issues"
+Source = "https://github.com/airtai/{{cookiecutter.project_slug}}"
 
 [tool.hatch.version]
-path = "faststream/__about__.py"
+path = "{{cookiecutter.project_slug}}/__about__.py"
 
 [tool.hatch.build]
 skip-excluded-dirs = true
@@ -177,7 +137,7 @@ disallow_any_unimported = false
 fix = true
 line-length = 88
 target-version = "py38"
-include = ["faststream/**/*.py", "faststream/**/*.pyi", "tests/**/*.py", "docs/**/*.py", "pyproject.toml"]
+include = ["{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}/**/*.pyi", "{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}/**/*.py", "{{cookiecutter.project_slug}}.toml"]
 exclude = ["docs/docs_src"]
 
 [tool.ruff.lint]
@@ -233,16 +193,6 @@ convention = "google"
 
 [tool.ruff.flake8-bugbear]
 extend-immutable-calls = [
-    "faststream.Depends", "faststream.Context", "faststream.broker.fastapi.context.Context",
-    "faststream.Header", "faststream.Path",
-    "faststream.utils.Header", "faststream.utils.Path",
-    "faststream.utils.Depends", "faststream.utils.Context",
-    "faststream.utils.context.Depends", "faststream.utils.context.Context",
-    "typer.Argument", "typer.Option",
-    "pydantic.Field", "rocketry.args.Arg",
-    "fastapi.Depends", "fastapi.Header",
-    "fastapi.datastructures.Default",
-    "kafka.partitioner.default.DefaultPartitioner",
 ]
 
 [tool.pytest.ini_options]
@@ -252,10 +202,6 @@ testpaths = [
     "tests",
 ]
 markers = [
-    "rabbit",
-    "kafka",
-    "nats",
-    "redis",
     "slow",
     "all",
 ]
@@ -270,13 +216,12 @@ concurrency = [
 source = [
     "docs/docs_src",
     "examples",
-    "faststream",
+    "{{cookiecutter.project_slug}}",
     "tests"
 ]
 context = '${CONTEXT}'
 omit = [
     "**/__init__.py",
-    "tests/mypy/*",
 ]
 
 [tool.coverage.report]
@@ -300,25 +245,8 @@ omit = [
     '*/__about__.py',
     '*/__main__.py',
     '*/__init__.py',
-    '*/annotations.py',
-    'docs/docs_src/getting_started/serialization/avro.py',
-    'docs/docs_src/getting_started/serialization/msgpack_ex.py',
-    'docs/docs_src/getting_started/serialization/protobuf.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/aiohttp.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/blacksheep.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/falcon.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/litestar.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/quart.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/sanic.py',
-    'docs/docs_src/integrations/http_frameworks_integrations/tornado.py',
-    'examples/howto/structlogs.py',
-    'examples/serialization/avro/avro.py',
-    'examples/serialization/msgpack/pack.py',
-    'examples/serialization/protobuf/protobuf.py',
 ]
 
 [tool.bandit]
 
 [tool.codespell]
-
-ignore-words-list = "dependant"
