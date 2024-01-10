@@ -22,7 +22,7 @@ jobs:
           python-version: 3.x
       - uses: actions/cache@v3
         with:
-          key: ${{ github.ref }}
+          key: {{"${{ github.ref }}"}}
           path: .cache
       - run: pip install -e ".[dev]"
       - run: ./scripts/build-docs.sh

@@ -4,6 +4,9 @@
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
     "project_description": "New project created with cookiecutter",
     "_copy_without_render": [
-        ".github/workflows/update_release_notes.yaml"
+        ".github/workflows/update_release_notes.yaml",
+        ".github/workflows/publish_pypi.yaml",
+        ".github/workflows/publish_coverage.yaml",
+        ".github/workflows/codeql.yaml"
     ]
 }
