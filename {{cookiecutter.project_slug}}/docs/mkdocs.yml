@@ -151,7 +151,7 @@ extra:
   analytics:
     provider: google
     property: G-HDTMP5FFHP
-  #social_image: https://opengraph.githubassets.com/1671805243.560327/airtai/faststream
+  #social_image: https://opengraph.githubassets.com/1671805243.560327/airtai/
   social:
     # Discord link should be first
     - icon: fontawesome/brands/discord
