@@ -63,6 +63,7 @@ devdocs = [
     "pillow==10.2.0",
     "cairosvg==2.7.1",
     "black==23.12.1",
+    "typer>=0.8.0",
     "requests",  # do not pin it
 ]
 
